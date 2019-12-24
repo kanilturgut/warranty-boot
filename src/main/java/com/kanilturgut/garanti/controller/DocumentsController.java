@@ -22,6 +22,11 @@ public class DocumentsController {
         this.documentService = documentService;
     }
 
+    @GetMapping("/init")
+    public ResponseEntity<?> initialize() {
+        return ResponseEntity.ok().build();
+    }
+
     @GetMapping("/documents")
     public ResponseEntity<List<Document>> getDocuments() {
         LOGGER.info("getDocuments called.");
