@@ -1,14 +1,10 @@
 spring:
+  datasource:
+    url: ${JDBC_DATABASE_URL}
+    username: ${JDBC_DATABASE_USERNAME}
+    password: ${JDBC_DATABASE_PASSWORD}
   jpa:
-    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    show-sql: false
+    generate-ddl: false
     hibernate:
       ddl-auto: update
-  datasource:
-    hikari:
-      connection-timeout: 20000
-      maximum-pool-size: 5
-    url: jdbc:postgresql://localhost:5432/garanti_belgeleri
-    username: kanilturgut
-    password: f33Dt1ck.
-
-
