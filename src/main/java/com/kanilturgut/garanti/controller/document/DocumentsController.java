@@ -1,4 +1,4 @@
-package com.kanilturgut.garanti.controller;
+package com.kanilturgut.garanti.controller.document;
 
 import com.kanilturgut.garanti.exception.ResourceNotFoundException;
 import com.kanilturgut.garanti.model.Document;

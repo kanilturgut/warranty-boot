@@ -1,4 +1,4 @@
-package com.kanilturgut.garanti.controller;
+package com.kanilturgut.garanti.controller.document;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.kanilturgut.garanti.model.Document;

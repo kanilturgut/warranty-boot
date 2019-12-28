@@ -1,6 +1,6 @@
 package com.kanilturgut.garanti.service.business;
 
-import com.kanilturgut.garanti.controller.DocumentRequest;
+import com.kanilturgut.garanti.controller.document.DocumentRequest;
 import com.kanilturgut.garanti.exception.ResourceNotFoundException;
 import com.kanilturgut.garanti.model.Document;
 import com.kanilturgut.garanti.respository.DocumentRepository;
