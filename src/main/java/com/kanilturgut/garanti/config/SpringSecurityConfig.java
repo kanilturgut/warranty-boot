@@ -18,6 +18,7 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
 
     private final String[] permittedPaths = new String[]{
+            "/init",
             "/authentication"
     };
 
