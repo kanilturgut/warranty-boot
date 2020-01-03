@@ -1,8 +1,11 @@
 package com.kanilturgut.garanti.controller.auth;
 
 import com.kanilturgut.garanti.config.SpringSecurityConfig;
+import com.kanilturgut.garanti.controller.document.DocumentsController;
 import com.kanilturgut.garanti.service.security.SecureUserDetailsService;
 import com.kanilturgut.garanti.util.JwtUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.AuthenticationException;
@@ -15,6 +18,8 @@ import javax.validation.Valid;
 
 @RestController
 public class AuthenticationController {
+
+    private static final Logger LOGGER = LoggerFactory.getLogger(DocumentsController.class);
 
     private final SpringSecurityConfig springSecurityConfig;
     private final SecureUserDetailsService userDetailsService;
@@ -38,7 +43,7 @@ public class AuthenticationController {
         } catch (AuthenticationException e) {
             throw new Exception("Incorrect username or password");
         } catch (Exception e) {
-            e.printStackTrace();
+            LOGGER.error(String.format("Error occurred during createAuthenticationToken for username %s", username), e);
         }
 
         final UserDetails userDetails = userDetailsService.loadUserByUsername(username);

@@ -1,21 +1,16 @@
 package com.kanilturgut.garanti.model;
 
-import lombok.Getter;
-import lombok.Setter;
-
 import javax.persistence.*;
 import java.util.Date;
 
 @Entity
-@Getter
-@Setter
 @Table(name = "garanti_belgeleri")
 public class Document extends AuditModel {
 
     @Id
     @GeneratedValue(generator = "document_generator")
     @SequenceGenerator(
-            name = "sequence_generator",
+            name = "document_generator",
             sequenceName = "seq_document"
     )
     private Long id;

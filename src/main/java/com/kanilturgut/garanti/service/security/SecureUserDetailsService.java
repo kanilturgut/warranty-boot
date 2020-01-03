@@ -1,6 +1,7 @@
 package com.kanilturgut.garanti.service.security;
 
-import org.springframework.security.core.userdetails.User;
+import com.kanilturgut.garanti.model.User;
+import com.kanilturgut.garanti.respository.UserRepository;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -11,8 +12,21 @@ import java.util.Collections;
 @Service
 public class SecureUserDetailsService implements UserDetailsService {
 
+    private final UserRepository userRepository;
+
+    public SecureUserDetailsService(UserRepository userRepository) {
+        this.userRepository = userRepository;
+    }
+
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        return new User("foo", "foo", Collections.emptyList());
+
+        User userByUsername = userRepository.findUserByUsername(username);
+        if (null == userByUsername) {
+            throw new UsernameNotFoundException(username);
+        }
+
+        return new org.springframework.security.core.userdetails.User(userByUsername.getUsername(),
+                userByUsername.getPassword(), Collections.emptyList());
     }
 }
