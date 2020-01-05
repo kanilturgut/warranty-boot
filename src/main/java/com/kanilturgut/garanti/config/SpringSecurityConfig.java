@@ -26,8 +26,8 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
     private final JwtExceptionHandlerFilter jwtExceptionHandlerFilter;
     private final JwtRequestFilter jwtRequestFilter;
 
-    public SpringSecurityConfig(SecureUserDetailsService userDetailsService,
-                                JwtExceptionHandlerFilter jwtExceptionHandlerFilter, JwtRequestFilter jwtRequestFilter) {
+    public SpringSecurityConfig(SecureUserDetailsService userDetailsService, JwtExceptionHandlerFilter jwtExceptionHandlerFilter,
+                                JwtRequestFilter jwtRequestFilter) {
         this.userDetailsService = userDetailsService;
         this.jwtExceptionHandlerFilter = jwtExceptionHandlerFilter;
         this.jwtRequestFilter = jwtRequestFilter;
